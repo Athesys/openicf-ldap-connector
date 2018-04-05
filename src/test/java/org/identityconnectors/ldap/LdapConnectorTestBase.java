@@ -238,9 +238,9 @@ public abstract class LdapConnectorTestBase {
             config.setSchemaDirectory(schemaDir);
             config.setLockDirectory(lockDir);
             EmbeddedUtils.startServer(config);
-        } catch (ConfigException e) {
-            throw (IOException) new IOException(e.getMessage()).initCause(e);
         } catch (InitializationException e) {
+            throw (IOException) new IOException(e.getMessage()).initCause(e);
+        } catch (/*Config*/Exception e) {
             throw (IOException) new IOException(e.getMessage()).initCause(e);
         }
     }
